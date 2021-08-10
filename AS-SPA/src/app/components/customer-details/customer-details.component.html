@@ -1,0 +1,52 @@
+<div style="width: 500px; margin: auto;">
+  <div *ngIf="currentCustomer" class="edit-form">
+    <h4>Customer</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Customer Id</label>
+        {{currentCustomer.customerId}}
+      </div>
+      <div class="form-group">
+        <label for="customerName">Customer Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="customerName"
+          [(ngModel)]="currentCustomer.customerName"
+          name="customerName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phoneNumber">Phonr Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="phoneNumber"
+          [(ngModel)]="currentCustomer.phoneNumber"
+          name="phoneNumber"
+        />
+      </div>
+    </form>
+
+
+    <button class="badge badge-danger mr-2" (click)="deleteCustomer()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success"
+      (click)="updateCustomer()"
+    >
+      Update
+    </button>
+    <p></p>
+  </div>
+
+  <div *ngIf="!currentCustomer">
+    <br />
+    <p>This product is not accessible</p>
+  </div>
+</div>
+
